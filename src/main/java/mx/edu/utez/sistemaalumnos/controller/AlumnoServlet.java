@@ -11,17 +11,17 @@ import mx.edu.utez.sistemaalumnos.model.dao.MascotaDao;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "MascotaServlet", value = "/mascota")
-public class MascotaServlet extends HttpServlet {
+@WebServlet(name = "AlumnoServlet", value = "/alumno")
+public class AlumnoServlet extends HttpServlet {
 
-    private final MascotaDao mascotaDao = new MascotaDao();
+    private final AlumnoDao AlumnoDao = new AlumnoDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Mascota> lista = mascotaDao.getAll();
-        request.setAttribute("listaMascotas", lista);
-        request.getRequestDispatcher("gestion-mascotas.jsp").forward(request, response);
+        List<Alumno> lista = alumnoDao.getAll();
+        request.setAttribute("listaAlumnos", lista);
+        request.getRequestDispatcher("gestion-alumnos.jsp").forward(request, response);
     }
 
     @Override
@@ -30,26 +30,26 @@ public class MascotaServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         try {
             String nombre = request.getParameter("nombre");
-            String especie = request.getParameter("especie");
+            String apellido = request.getParameter("especie");
             int edad = Integer.parseInt(request.getParameter("edad"));
-            String personalidad = request.getParameter("personalidad");
-            String foto = request.getParameter("foto");
-            boolean vacunada = request.getParameter("vacunada") != null;
+            String matricula = request.getParameter("matricula");
+            String correo = request.getParameter("corrreo");
+            String sexo = request.getParameter("sexo");
 
-            Mascota nuevaMascota = new Mascota();
-            nuevaMascota.setNombre(nombre);
-            nuevaMascota.setEspecie(especie);
-            nuevaMascota.setEdad(edad);
-            nuevaMascota.setPersonalidad(personalidad);
-            nuevaMascota.setFoto(foto);
-            nuevaMascota.setVacunada(vacunada);
+            Alumno nuevaAlumno = new Alumno();
+            nuevaAlumno.setNombre(nombre);
+            nuevaAlumno.setApellido(apellido);
+            nuevaAlumno.setEdad(edad);
+            nuevaAlumno.setMatricula(matricula);
+            nuevaAlumno.setCorreo(correo);
+            nuevaAlumno.setSexo(sexo);
 
-            mascotaDao.create(nuevaMascota);
+            AlumnoDao.create(nuevaAlumno);
         } catch (NumberFormatException e) {
             System.err.println("Error al transformar datos numéricos en el registro: " + e.getMessage());
             e.printStackTrace();
         }
 
-        response.sendRedirect("mascota");
+        response.sendRedirect("alumno");
     }
 }
