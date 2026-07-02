@@ -6,7 +6,7 @@
 <!-- pie de página -->
 <footer class="footer mt-auto py-3 bg-black">
     <div class="container text-center text-white">
-        <span>&copy; Derick Lagunes - Todos los derechos reservados</span>
+        <span>&copy; Lucero Bahena - Arantza Hernandez - Eduardo Flores - Melisa Sanchez - Oswaldo Valentin</span>
     </div>
 </footer>
 
