@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import mx.edu.utez.sistemaalumnos.model.Dueno;
-import mx.edu.utez.sistemaalumnos.model.dao.DuenoDao;
+import mx.edu.utez.sistemaalumnos.model.dao.AlumnoDao;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        DuenoDao dao = new DuenoDao();
+        AlumnoDao dao = new AlumnoDao();
 
         // Generar un nuevo ID simulando un AUTO_INCREMENT
         int nuevoId = 1;
