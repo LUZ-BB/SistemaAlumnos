@@ -7,7 +7,7 @@ public class Dueno {
     private int id;
     private String nombre;
     private String apellidos;
-    private List<Mascota> mascotas;
+    private List<Alumno> mascotas;
     private String correo;
     private String contrasena;
     private String foto_perfil;
@@ -16,7 +16,7 @@ public class Dueno {
     public Dueno() {
     }
 
-    public Dueno(int id, String nombre, String apellidos, List<Mascota> mascotas, String correo, String contrasena, String foto_perfil) {
+    public Dueno(int id, String nombre, String apellidos, List<Alumno> mascotas, String correo, String contrasena, String foto_perfil) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -26,7 +26,7 @@ public class Dueno {
         this.foto_perfil = foto_perfil;
     }
 
-    public Dueno(int id, String nombre, String apellidos, List<Mascota> mascotas, String correo, String contrasena, String foto_perfil, String codigo_recuperacion) {
+    public Dueno(int id, String nombre, String apellidos, List<Alumno> mascotas, String correo, String contrasena, String foto_perfil, String codigo_recuperacion) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -61,11 +61,11 @@ public class Dueno {
         this.apellidos = apellidos;
     }
 
-    public List<Mascota> getMascotas() {
+    public List<Alumno> getMascotas() {
         return mascotas;
     }
 
-    public void setMascotas(List<Mascota> mascotas) {
+    public void setMascotas(List<Alumno> mascotas) {
         this.mascotas = mascotas;
     }
 
@@ -95,7 +95,7 @@ public class Dueno {
 
     public String getMascotasId(){
         java.util.StringJoiner sj = new java.util.StringJoiner(",");
-        for(Mascota m : mascotas){
+        for(Alumno m : mascotas){
             sj.add(String.valueOf(m.getId()));
         }
         return sj.toString();

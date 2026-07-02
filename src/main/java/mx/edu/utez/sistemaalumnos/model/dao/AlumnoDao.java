@@ -1,6 +1,6 @@
 package mx.edu.utez.sistemaalumnos.model.dao;
 
-import mx.edu.utez.sistemaalumnos.model.Mascota;
+import mx.edu.utez.sistemaalumnos.model.Alumno;
 import mx.edu.utez.sistemaalumnos.utils.SQLConnector;
 
 import java.sql.Connection;
@@ -21,7 +21,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
             ps.setInt(3, entidad.getEdad());
             ps.setString(4, entidad.getMatricula());
             ps.setString(5, entidad.getCorreo());
-            ps.setInt(6, entidad.getSexo() );
+            ps.setString(6, entidad.getSexo() );
 
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
@@ -65,7 +65,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Alumno a = new Mascota();
+                    Alumno a = new Alumno();
                     a.setId(rs.getInt("id"));
                     a.setNombre(rs.getString("nombre"));
                     a.setApellido(rs.getString("apellido"));

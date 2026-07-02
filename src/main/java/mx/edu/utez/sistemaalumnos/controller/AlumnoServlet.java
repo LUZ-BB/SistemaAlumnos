@@ -5,8 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import mx.edu.utez.sistemaalumnos.model.Mascota;
-import mx.edu.utez.sistemaalumnos.model.dao.MascotaDao;
+import mx.edu.utez.sistemaalumnos.model.Alumno;
+import mx.edu.utez.sistemaalumnos.model.dao.AlumnoDao;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,7 +19,7 @@ public class AlumnoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Alumno> lista = alumnoDao.getAll();
+        List<Alumno> lista = AlumnoDao.getAll();
         request.setAttribute("listaAlumnos", lista);
         request.getRequestDispatcher("gestion-alumnos.jsp").forward(request, response);
     }
