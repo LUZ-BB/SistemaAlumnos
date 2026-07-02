@@ -5,8 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import mx.edu.utez.integradora_poo_2026.model.Mascota;
-import mx.edu.utez.integradora_poo_2026.model.dao.MascotaDao;
+import mx.edu.utez.sistemaalumnos.model.Mascota;
+import mx.edu.utez.sistemaalumnos.model.dao.MascotaDao;
 
 import java.io.IOException;
 import java.util.List;

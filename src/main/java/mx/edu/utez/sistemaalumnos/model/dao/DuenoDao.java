@@ -1,8 +1,8 @@
 package mx.edu.utez.sistemaalumnos.model.dao;
 
-import mx.edu.utez.integradora_poo_2026.model.Dueno;
-import mx.edu.utez.integradora_poo_2026.model.Mascota;
-import mx.edu.utez.integradora_poo_2026.utils.SQLConnector;
+import mx.edu.utez.sistemaalumnos.model.Dueno;
+import mx.edu.utez.sistemaalumnos.model.Mascota;
+import mx.edu.utez.sistemaalumnos.utils.SQLConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
