@@ -1,7 +1,7 @@
 package mx.edu.utez.sistemaalumnos.model;
 
 public class Alumno {
-    private int id;
+    private int id_alumno;
     private String nombre;
     private String apellido;
     private int edad;
@@ -12,8 +12,8 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(int id, String nombre, String apellido, int edad, String matricula, String correo,String sexo) {
-        this.id = id;
+    public Alumno(int id, String nombre, String apellido, int edad, String matricula, String correo, String sexo) {
+        this.id_alumno = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -22,12 +22,12 @@ public class Alumno {
         this.sexo = sexo;
     }
 
-    public int getId() {
-        return id;
+    public int getIdAlumno() {
+        return id_alumno;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAlumno(int id) {
+        this.id_alumno = id;
     }
 
     public String getNombre() {
@@ -81,7 +81,7 @@ public class Alumno {
     @Override
     public String toString() {
         return "Alumno{" +
-                "id=" + id +
+                "id=" + id_alumno +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", edad=" + edad +
@@ -90,4 +90,6 @@ public class Alumno {
                 ", sexo='" + sexo + '\'' +
                 '}';
     }
+
+
 }

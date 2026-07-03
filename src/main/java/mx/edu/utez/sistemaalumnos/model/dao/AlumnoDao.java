@@ -13,7 +13,7 @@ import java.util.List;
 public class AlumnoDao implements Dao<Alumno, Integer>{
     @Override
     public boolean create(Alumno entidad) {
-        String sql = "INSERT INTO ALUMO(nombre, apellido, edad, matricula, correo, sexo) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ALUMNO(nombre, apellido, edad, matricula, correo, sexo) VALUES( ?, ?, ?, ?, ?, ?)";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, entidad.getNombre());
@@ -41,7 +41,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
 
             while (rs.next()) {
                 Alumno a = new Alumno();
-                a.setId(rs.getInt("id"));
+                a.setIdAlumno(rs.getInt("id_alumno"));
                 a.setNombre(rs.getString("nombre"));
                 a.setApellido(rs.getString("apellido"));
                 a.setEdad(rs.getInt("edad"));
@@ -58,7 +58,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
 
     @Override
     public Alumno getById(Integer id) {
-        String sql = "SELECT * FROM ALUMNO WHERE id = ?";
+        String sql = "SELECT * FROM ALUMNO WHERE id_alumno = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -66,7 +66,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     Alumno a = new Alumno();
-                    a.setId(rs.getInt("id"));
+                    a.setIdAlumno(rs.getInt("id"));
                     a.setNombre(rs.getString("nombre"));
                     a.setApellido(rs.getString("apellido"));
                     a.setEdad(rs.getInt("edad"));
@@ -84,17 +84,17 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
 
     @Override
     public boolean update(Alumno entidad) {
-        String sql = "UPDATE ALUMNO SET nombre = ?, apellido = ?, edad = ?, mattricula = ?, correo = ?, sexo = ? WHERE id = ?";
+        String sql = "UPDATE ALUMNO SET nombre = ?, apellido = ?, edad = ?, mattricula = ?, correo = ?, sexo = ? WHERE id_alumno = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, entidad.getNombre());
+
             ps.setString(2, entidad.getApellido());
             ps.setInt(3, entidad.getEdad());
             ps.setString(4, entidad.getMatricula());
             ps.setString(5, entidad.getCorreo());
             ps.setString(6, entidad.getSexo() );
-            ps.setInt(7, entidad.getId());
+            ps.setInt(7, entidad.getIdAlumno());
 
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
@@ -106,7 +106,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
 
     @Override
     public boolean delete(Integer id) {
-        String sql = "DELETE FROM ALUMNO WHERE id = ?";
+        String sql = "DELETE FROM ALUMNO WHERE id_alumno = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 

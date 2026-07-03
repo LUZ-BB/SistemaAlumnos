@@ -20,8 +20,11 @@ public class AlumnoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Alumno> lista = AlumnoDao.getAll();
+        for (Alumno alumno : lista) {
+            System.out.println(alumno);
+        }
         request.setAttribute("listaAlumnos", lista);
-        request.getRequestDispatcher("gestion-alumnos.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
@@ -30,10 +33,10 @@ public class AlumnoServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         try {
             String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("especie");
+            String apellido = request.getParameter("apellido");
             int edad = Integer.parseInt(request.getParameter("edad"));
             String matricula = request.getParameter("matricula");
-            String correo = request.getParameter("corrreo");
+            String correo = request.getParameter("correo");
             String sexo = request.getParameter("sexo");
 
             Alumno nuevaAlumno = new Alumno();
