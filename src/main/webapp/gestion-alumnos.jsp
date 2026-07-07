@@ -15,7 +15,7 @@
 
         <c:choose>
             <%-- Condición 1: Si la lista es nula o está vacía --%>
-            <c:when test="${empty listaAlumno}">
+            <c:when test="${empty listaAlumnos}">
                 <div class="alert alert-info text-center mt-4" role="alert">
                     <i class="bi bi-info-circle-fill"></i> No hay Alumnos Registrados en este momento.
                 </div>
@@ -23,41 +23,20 @@
 
             <%-- Condición por defecto: Si la lista SÍ tiene datos --%>
             <c:otherwise>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover mt-4 align-middle">
-                        <thead class="table-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Edad</th>
-                            <th>Matricula</th>
-                            <th>Correo</th>
-                            <th>Sexo</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${listaAlumno}" var="Alumno">
-                            <%-- Nota: Tienes una estructura de Card metida directamente dentro de un <tbody> de una Tabla, lo cual puede romper el diseño HTML. Si prefieres cards, lo ideal sería quitar la tabla. --%>
-                            <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">${Alumno.nombre}</h5>
-                                    <p class="card-text">${Alumno.matricula}</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">${Alumno.edad} años</li>
-                                    <li class="list-group-item">${Alumno.correo}</li>
-                                    <li class="list-group-item">${Alumno.sexo}</li>
-                                </ul>
-                                <div class="card-body">
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <c:forEach items="${listaAlumnos}" var="Alumno">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">${Alumno.nombre}</h5>
+                                <p class="card-text">${Alumno.matricula}</p>
                             </div>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">${Alumno.edad} años</li>
+                                <li class="list-group-item">${Alumno.correo}</li>
+                                <li class="list-group-item">${Alumno.sexo}</li>
+                            </ul>
+                        </div>
+                    </c:forEach>
                 </div>
             </c:otherwise>
         </c:choose>
